@@ -1,17 +1,17 @@
-#Usando cada caminhamento para encontrar o maior, menor e a media do valor da ávore binária
+#Usando cada caminhamento para encontrar o maior, menor e a media do valor da árvore binária
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None 
-        self.right = None
+    def __init__(self, value):         
+        self.value = value             
+        self.left = None               
+        self.right = None               
 
 #pre-order
 def findMaxPreOrder(node):
-    if node is None:
-        return float('-inf')
-    currentValue = node.value
-    leftMax = findMaxPreOrder(node.left)
-    rightMax = findMaxPreOrder(node.right)  
+    if node is None:                   
+        return float('-inf')           
+    currentValue = node.value             
+    leftMax = findMaxPreOrder(node.left)  
+    rightMax = findMaxPreOrder(node.right)
     return max(currentValue,leftMax,rightMax)   
 
 #in-order
