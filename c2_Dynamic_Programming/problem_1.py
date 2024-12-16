@@ -16,7 +16,7 @@ def knapsackProblem(itemValues,itemWeights,maxCapacity):
     capacity = maxCapacity
 
     for i in range(n, 0, -1):
-        if dpTable[i][c] != dpTable[i-1][c]:
+        if dpTable[i][capacity] != dpTable[i-1][capacity]:
             selectedItems.append(i-1)
             capacity = capacity - itemWeights[i-1]
     
