@@ -3,6 +3,7 @@ import unittest
 from problem_3 import Node, findMaxPreOrder, findMinInOrder, findAveragePosOrder
 
 class TestArvore(unittest.TestCase):
+    #Case: create a tree and 
     def test_case_1(self):
         root = Node(10)
         root.left = Node(5)

@@ -1,30 +1,24 @@
-def knapsackProblem(v,w,W):
-    #v = lista dos valores de cada item
-    #w = lista dos pesos de cada item
-    #W = capacidade maxima da mochila
-    #n = quantidade de itens
-    #K = valor máximo de itens e seus pesos na mochila considerando a capacidade
-
-    n=len(v)
-    K=[[0 for _ in range(W+1)] for _ in range(n+1)]
+def knapsackProblem(itemValue,itemWeight,maxCapacityBag):
+    n = len(itemValue)     
+    matrizValuesAndItens = [[0 for _ in range(maxCapacityBag+1)] for _ in range(n+1)] 
     
-    for i in range(1,n+1):
-        for cap in range(1,W+1):
-            K[i][cap]=K[i-1][cap]
+    for i in range(1, n+1):  
+        for c in range(1, maxCapacityBag+1): 
+            matrizValuesAndItens[i][c] = matrizValuesAndItens[i-1][c] 
 
-            if w[i-1]<=cap:
-                itemValue=v[i-1]+K[i-1][cap-w[i-1]]
-                if itemValue>K[i][cap]:
-                    K[i][cap]=itemValue
+            if itemWeight[i-1] <= c: 
+                items = itemValue[i-1] + matrizValuesAndItens[i-1][c - itemWeight[i-1]] 
+                if items > matrizValuesAndItens[i][c]:
+                    matrizValuesAndItens[i][c] = items
     
-    maxValue=K[n][W]
-    selectedItems=[]
-    cap = W
+    maxValue = matrizValuesAndItens[n][maxCapacityBag]
+    selectedItems = []
+    c = maxCapacityBag
 
-    for i in range(n,0,-1):
-        if K[i][cap]!=K[i-1][cap]:
+    for i in range(n, 0, -1):
+        if matrizValuesAndItens[i][c] != matrizValuesAndItens[i-1][c]:
             selectedItems.append(i-1)
-            cap=cap-w[i-1]
+            c = c - itemWeight[i-1]
     
     selectedItems.reverse()
     return maxValue, selectedItems
