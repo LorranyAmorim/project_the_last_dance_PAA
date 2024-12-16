@@ -9,7 +9,7 @@ class NQueensSolver:
 
     def insertQueens(self, row):
         if row == self.n:
-            self.solutions.append(self.buildBoard())
+            self.solutions.append(self.board[:])
             return
 
         for col in range(self.n):
@@ -29,11 +29,13 @@ class NQueensSolver:
                 self.majorDiagonals[majorIndex] = False
                 self.minorDiagonals[minorIndex] = False
 
-    def buildBoard(self):
+    def buildBoard(self, board):
         solutionBoard = []
         for i in range(self.n):
             rowList = ['x'] * self.n
-            qCol = self.board[i]
+            qCol = board[i]
             rowList[qCol] = 'Q'
             solutionBoard.append("".join(rowList))
-        return solutionBoard
+        
+        totalQueens = sum(row.count('Q') for row in solutionBoard)
+        return solutionBoard, totalQueens
