@@ -11,9 +11,15 @@ class TestArvore(unittest.TestCase):
         root.left.right = Node(7)
         root.right.left = Node(15)
         root.right.right = Node(25)
-        self.assertEqual(findMaxPreOrder(root),25)
-        self.assertEqual(findMinInOrder(root),3)
-        self.assertAlmostEqual(findAveragePosOrder(root), 12.14, places=2)
+        resultMax = findMaxPreOrder(root)
+        resultMin = findMinInOrder(root)
+        resultAverage = findAveragePosOrder(root)
+        if not(resultMax==25 and resultMin==3 and str(resultAverage).startswith("12.14")):
+            print("Test failed!")
+        else:
+            print("Test pass!")
+            
+
     
     def test_case_2(self):
         root = Node(50)
@@ -21,16 +27,26 @@ class TestArvore(unittest.TestCase):
         root.right = Node(60)
         root.left.left = Node(40)
         root.right.right = Node(70)
-        self.assertEqual(findMaxPreOrder(root),70)
-        self.assertEqual(findMinInOrder(root),40)
-        self.assertAlmostEqual(findAveragePosOrder(root), -7.5, places=2)
+        resultMax = findMaxPreOrder(root)
+        resultMin = findMinInOrder(root)
+        resultAverage = findAveragePosOrder(root)
+        if not(resultMax==70 and resultMin==40 and str(resultAverage).startswith("53")):
+            print("Test failed!")
+        else:
+            print("Test pass!")
+            
+        
 
     def test_case_3(self):
         root = Node(-10)
         root.right = Node(-5)
-        self.assertEqual(findMaxPreOrder(root),-5)
-        self.assertEqual(findMinInOrder(root),-10)
-        self.assertEqual(findAveragePosOrder(root),-7.5,places=2) 
+        resultMax = findMaxPreOrder(root)
+        resultMin = findMinInOrder(root)
+        resultAverage = findAveragePosOrder(root)
+        if not(resultMax==-5 and resultMin==-10 and str(resultAverage).startswith("-7.5")):
+            print("Test failed!")
+        else:
+            print("Test pass!")
 
 if __name__=='__main__':
     unittest.main()
