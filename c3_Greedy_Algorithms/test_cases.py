@@ -2,9 +2,11 @@ import unittest
 from problem_2 import Kruskall
 
 class TestKruskallProblem(unittest.TestCase):
-    #Case description: sorts the edges by weight;
-    #Builds the minimum spanning tree without cycles;
-    #Selects the lowest weight edges to connect the vertices.
+    """
+    Case description: sorts the edges by weight;
+    Builds the minimum spanning tree without cycles;
+    Selects the lowest weight edges to connect the vertices.
+    """
     def test_case_1(self):
        k = Kruskall(3)
        k.createVertexList(0, "A")
@@ -22,10 +24,12 @@ class TestKruskallProblem(unittest.TestCase):
            print("Test failed!")
 
 
-    #Case description: handles disconnected components;
-    #Sorts the edges by weight;
-    #Builds the minimum spanning trees independently for each connected component;
-    #Selects the lowest weight edges for each component without forming cycles.
+    """
+    Case description: handles disconnected components;
+    Sorts the edges by weight;
+    Builds the minimum spanning trees independently for each connected component;
+    Selects the lowest weight edges for each component without forming cycles.
+    """
     def test_case_2(self):
         k = Kruskall(4)
         k.createVertexList(0, "A")
@@ -42,13 +46,14 @@ class TestKruskallProblem(unittest.TestCase):
         else:
             print("Test failed!")
         
-        
  
-    #Case description: processes graphs with multiple edges between the same pair of vertices;
-    #Sorts the edges by weight;
-    #Ensures no duplicate edges are selected;
-    #Builds the minimum spanning tree without cycles;
-    #Selects the lowest weight edges to connect all vertices.
+    """
+    Case description: processes graphs with multiple edges between the same pair of vertices;
+    Sorts the edges by weight;
+    Ensures no duplicate edges are selected;
+    Builds the minimum spanning tree without cycles;
+    Selects the lowest weight edges to connect all vertices.
+    """
     def test_case_3(self):
         k = Kruskall(3)
         k.createVertexList(0, "A")
@@ -66,6 +71,8 @@ class TestKruskallProblem(unittest.TestCase):
         else:
             print("Test failed!")
             
+
+
 
 if __name__ == '__main__':
     unittest.main()

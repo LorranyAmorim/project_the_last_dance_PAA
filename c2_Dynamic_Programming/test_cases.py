@@ -3,7 +3,9 @@ from problem_1 import knapsackProblem
 
 class TestKnapsackProblem(unittest.TestCase):
     def test_case_1(self):
-        # Case description: sufficient capacity for some items
+        """
+        Case description: sufficient capacity for some items.
+        """
         values = [60, 100, 120]
         weights = [10, 20, 30]
         capacity = 50
@@ -15,7 +17,9 @@ class TestKnapsackProblem(unittest.TestCase):
             
 
     def test_case_2(self):
-        # Case description: insufficient capacity
+        """
+        Case description: insufficient capacity.
+        """
         values = [10, 20, 30]
         weights = [5, 10, 15]
         capacity = 0
@@ -28,7 +32,9 @@ class TestKnapsackProblem(unittest.TestCase):
 
 
     def test_case_3(self):
-        # Case description: all items can be chosen
+        """
+        Case description: all items can be chosen.
+        """
         values = [10, 40, 50]
         weights = [1, 2, 3]
         capacity = 6

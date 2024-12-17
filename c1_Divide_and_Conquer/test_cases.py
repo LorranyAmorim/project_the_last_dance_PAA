@@ -2,9 +2,11 @@ import unittest
 from problem_3 import Node, findMaxPreOrder, findMinInOrder, findAveragePosOrder
 
 class TestArvore(unittest.TestCase):
-    #Case description: maximum value is in the leaf node on the right;
-    #The minimum value is in a node on the left;
-    #The average is calculated considering all nodes.
+    """
+    Case description: maximum value is in the leaf node on the right;
+    The minimum value is in a node on the left;
+    The average is calculated considering all nodes.
+    """
     def test_case_1(self):
         root = Node(10)
         root.left = Node(5)
@@ -21,10 +23,11 @@ class TestArvore(unittest.TestCase):
         else:
             print("Test pass!")
             
-    
-    #Case description: maximum value is in the leaf node on the right; 
-    #The minimum value is in a leaf node on the left;
-    #The average is calculated considering all nodes.
+    """
+    Case description: maximum value is in the leaf node on the right; 
+    The minimum value is in a leaf node on the left;
+    The average is calculated considering all nodes.
+    """
     def test_case_2(self):
         root = Node(50)
         root.left = Node(45)
@@ -39,10 +42,11 @@ class TestArvore(unittest.TestCase):
         else:
             print("Test pass!")
             
-         
-    #Case description: maximum value is the leaf node;
-    #The minimum value is the root node;
-    #The average is calculated considering negative values. 
+    """    
+    Case description: maximum value is the leaf node;
+    The minimum value is the root node;
+    The average is calculated considering negative values. 
+    """
     def test_case_3(self):
         root = Node(-10)
         root.right = Node(-5)
@@ -53,6 +57,8 @@ class TestArvore(unittest.TestCase):
             print("Test failed!")
         else:
             print("Test pass!")
+
+
 
 if __name__=='__main__':
     unittest.main()

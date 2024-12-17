@@ -81,7 +81,7 @@ class BranchAndBound:
                     index=currentNode.index + 1,
                     accumulatedValue=currentNode.accumulatedValue + nextItem.value,
                     accumulatedWeight=currentNode.accumulatedWeight + nextItem.weight,
-                    setSelected=currentNode.setSelected + [currentNode.index]  # registra o índice do item
+                    setSelected=currentNode.setSelected + [currentNode.index]  
                 )
                 includeNode.upperLimit = self.calcUpperLimit(includeNode)
 
